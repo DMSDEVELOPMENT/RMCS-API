@@ -16,8 +16,8 @@ public class Table {
     private World world;
     private double x, y, z;
     private float rx, ry, rz;
-    private List<Column> columns;
-    private List<String[]> rows;
+    private List<Column> columns = new ArrayList<>();
+    private List<String[]> rows = new ArrayList<>();
 
     public Table(int id) {
         this.id = id;
