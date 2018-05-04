@@ -16,19 +16,19 @@ public class DatabaseExample {
         try {
             //Исполняем блокирующие запросы, то есть для которых мы будем ожидать завершения и не пойдем дальше,
             // пока этого не случится:
-            holder.insant().prepare("INSERT INTO permissions VALUES (?, ?)").executeString("RinesThaix", "OWNER"); //забиваем на результат
-            holder.insant().prepare("SELECT * FROM permissions WHERE player_name=?").execute("RinesThaix").process(result -> {
+            holder.instant().prepare("INSERT INTO permissions VALUES (?, ?)").executeString("RinesThaix", "OWNER"); //забиваем на результат
+            holder.instant().prepare("SELECT * FROM permissions WHERE player_name=?").execute("RinesThaix").process(result -> {
                 //Обрабатываем результат, причем это происходит в том же потоке, где мы и были
                 String group = result.getFirst().getString("group");
                 String playerName = result.getFirst().getString(1);
             });
-            holder.insant().execute("SELECT * FROM permissions").process(result -> {
+            holder.instant().execute("SELECT * FROM permissions").process(result -> {
                 result.getRows().forEach(row -> {
                     String group = row.getString(2);
                     String playerName = row.getString(1);
                 });
             });
-            holder.insant().execute("SELECT * FROM permissions WHERE player_name='RinesThaix'").process(result -> {
+            holder.instant().execute("SELECT * FROM permissions WHERE player_name='RinesThaix'").process(result -> {
                 String group = result.getFirst().getString(2);
             });
             //Исполняем неблокирующие запросы, то есть завершения исполнения которых мы дожидаться не будем:

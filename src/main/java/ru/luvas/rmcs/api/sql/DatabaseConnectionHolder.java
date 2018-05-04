@@ -5,7 +5,7 @@ package ru.luvas.rmcs.api.sql;
  */
 public interface DatabaseConnectionHolder {
 
-    DatabaseInstantConnector insant();
+    DatabaseInstantConnector instant();
 
     DatabaseDelayedConnector delayed();
 
