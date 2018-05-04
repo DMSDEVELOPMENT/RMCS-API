@@ -5,7 +5,7 @@
     <artifactId>RMCS-API</artifactId>
     <description>RMCS-based API for third-party developers</description>
     <name>RMCS-API</name>
-    <version>1.0.3.0</version>
+    <version>1.0.4.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.mainclass>ru.luvas.rmcs.api.RMCSAPI</project.mainclass>
@@ -33,7 +33,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.3</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>

@@ -7,7 +7,6 @@ import ru.luvas.rmcs.api.party.PartyAPI;
 import ru.luvas.rmcs.api.player.RMCSPlayerManager;
 import ru.luvas.rmcs.api.scoreboard.ScoreboardAPI;
 import ru.luvas.rmcs.api.scoreboard.SideBoardAPI;
-import ru.luvas.rmcs.api.sql.SqlManager;
 import ru.luvas.rmcs.api.table.TableAPI;
 
 /**
@@ -34,7 +33,7 @@ public class RMCSAPI extends JavaPlugin {
     
     private static ConfigurationAPI configurationAPI;
     
-    private static SqlManager sqlManager;
+    private static DatabaseAPI databaseAPI;
     
     private static BungeeAPI bungeeAPI;
 
@@ -138,14 +137,13 @@ public class RMCSAPI extends JavaPlugin {
     }
     
     /**
-     * Получение SqlManager, через который можно получить SqlConnector для
-     * работы с базой данных.
-     * @return реализацию интерфейса SqlManager.
+     * Получение DatabaseAPI для работы с базой данных.
+     * @return реализацию интерфейса DatabaseAPI.
      */
-    public static SqlManager getSqlManager() {
+    public static DatabaseAPI getDatabaseAPI() {
         if(!isLoaded())
             throw new ApiNotLoadedException();
-        return sqlManager;
+        return databaseAPI;
     }
     
     /**
